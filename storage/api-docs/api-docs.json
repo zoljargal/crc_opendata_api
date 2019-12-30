@@ -1,0 +1,187 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "ХХЗХ нээлттэй өгөгдлийн API баримт",
+        "description": "Харилцаа холбооны зохицуулах хорооны нээлттэй өгөгдлийн API баримт.",
+        "termsOfService": "http://opendata.crc.gov.mn",
+        "contact": {
+            "email": "dashbalbar@crc.gov.mn"
+        },
+        "license": {
+            "name": "Apache 2.0",
+            "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+        },
+        "version": "1.0.0"
+    },
+    "paths": {
+        "/api/v1/licences/{id}": {
+            "get": {
+                "tags": [
+                    "Тусгай зөвшөөрөл"
+                ],
+                "summary": "Тусгай зөвшөөрлийг буцаана",
+                "description": "Тусгай зөвшөөрөл эзэмшигчийн мэдээллийг буцаана",
+                "operationId": "view",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Зөвшөөрлийн ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Амжилттай",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Licence"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Зөвшөөрөл олдоогүй"
+                    }
+                }
+            }
+        },
+        "/api/v1/licences": {
+            "get": {
+                "tags": [
+                    "Тусгай зөвшөөрөл"
+                ],
+                "summary": "Тусгай зөвшөөрлийн жагсаалт",
+                "description": "Тусгай зөвшөөрөл эзэмшигчийн мэдээллийг буцаана. Зөвшөөрөл авсан огноогоор шүүж болох ба хуудаслалттай. Нэг хуудаст 50 мэдээлэл ирнэ. from огноог дамжуулаагүй бол жилийн эхний өдрөөс хойшихыг буцаана.",
+                "operationId": "index",
+                "parameters": [
+                    {
+                        "name": "from",
+                        "in": "query",
+                        "description": "Эхлэх огноо, yyyy-MM-dd",
+                        "required": false,
+                        "schema": {
+                            "type": "Date",
+                            "format": "yyyy-MM-dd"
+                        }
+                    },
+                    {
+                        "name": "to",
+                        "in": "query",
+                        "description": "Төгсгөл огноо, yyyy-MM-dd",
+                        "required": false,
+                        "schema": {
+                            "type": "Date",
+                            "format": "yyyy-MM-dd"
+                        }
+                    },
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "description": "Хуудасны дугаар",
+                        "required": false,
+                        "schema": {
+                            "type": "int",
+                            "format": "int"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Амжилттай"
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "Licence": {
+                "properties": {
+                    "id": {
+                        "description": "ID",
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    "regnum": {
+                        "description": "Зөвшөөрлийн дугаар",
+                        "type": "string"
+                    },
+                    "cusname": {
+                        "description": "Эзэмшигчийн нэр",
+                        "type": "string"
+                    },
+                    "servname": {
+                        "description": "Үйлчилгээний нэр",
+                        "type": "string"
+                    },
+                    "property": {
+                        "description": "Тодруулга",
+                        "type": "string"
+                    },
+                    "province": {
+                        "description": "Аймаг хот",
+                        "type": "string"
+                    },
+                    "town": {
+                        "description": "Сум дүүрэг",
+                        "type": "string"
+                    },
+                    "address": {
+                        "description": "Хаяг",
+                        "type": "string"
+                    },
+                    "phone": {
+                        "description": "Утас",
+                        "type": "string"
+                    },
+                    "email": {
+                        "description": "Цахим шуудангийн хаяг",
+                        "type": "string"
+                    },
+                    "status": {
+                        "description": "Зөвшөөрлийн төлөв",
+                        "type": "string"
+                    },
+                    "begindate": {
+                        "description": "Зөвшөөрлийн эхлэх огноо",
+                        "type": "string",
+                        "format": "yyyy-MM-dd"
+                    },
+                    "enddate": {
+                        "description": "Эзэмшигчийн нэр",
+                        "type": "string",
+                        "format": "yyyy-MM-dd"
+                    },
+                    "servtname": {
+                        "description": "Үйлчилгээний ангилал",
+                        "type": "string"
+                    },
+                    "typename": {
+                        "description": "Зөвшөөрлийн ангилал",
+                        "type": "string"
+                    },
+                    "usage_location": {
+                        "description": "Хамрах хүрээ",
+                        "type": "string"
+                    }
+                },
+                "type": "object",
+                "xml": {
+                    "name": "Licence"
+                }
+            }
+        }
+    },
+    "tags": [
+        {
+            "name": "Тусгай зөвшөөрөл",
+            "description": "Тусгай зөвшөөрөл эзэмшигчдийн мэдээлэл"
+        }
+    ]
+}
