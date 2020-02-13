@@ -16,5 +16,5 @@ Route::get('/', function () {
     return redirect('/api/documentation');
 });
 
-Route::get('/api/v1/licences', 'LicencesController@index');
-Route::get('/api/v1/licences/{id}', 'LicencesController@view');
+Route::get('/v1/licences', 'LicencesController@index');
+Route::get('/v1/licences/{id}', 'LicencesController@view');
