@@ -48,6 +48,9 @@ class FetchLicences extends Command
         $url = "https://bill.crc.gov.mn/tzlist.php?z=api&type=getTZAll";
         $data = json_decode(file_get_contents($url, false, stream_context_create($arrContextOptions)), true);
 
+        if(!$data){
+            echo '\n error occured during fetch data';
+        }
         echo '\n fetched '. count($data) . ' licences.';
         foreach ($data as $d){
             $licence = Licence::firstOrNew(['id'=>$d['lc_id']]);
