@@ -4,6 +4,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Carbon\Carbon;
 use App\Licence;
 
@@ -48,7 +49,7 @@ class LicencesController extends Controller
         $license = Licence::find($id);
         if($license)
             return $license->toJson();
-        return "{}";
+        throw new ModelNotFoundException('License not found by ID ' . $id);
     }
 
     /**
