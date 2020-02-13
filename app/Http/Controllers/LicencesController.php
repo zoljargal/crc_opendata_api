@@ -45,7 +45,10 @@ class LicencesController extends Controller
      */
     public function view($id)
     {
-        return Licence::find($id)->toJson();
+        $license = Licence::find($id);
+        if($license)
+            return $license->toJson();
+        return "{}";
     }
 
     /**
