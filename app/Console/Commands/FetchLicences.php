@@ -12,7 +12,7 @@ class FetchLicences extends Command
      *
      * @var string
      */
-    protected $signature = 'fetch:licences';
+    protected $signature = 'crc:fetch';
 
     /**
      * The console command description.
