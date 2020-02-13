@@ -14,7 +14,7 @@
         "version": "1.0.0"
     },
     "paths": {
-        "/api/v1/licences/{id}": {
+        "/v1/licences/{id}": {
             "get": {
                 "tags": [
                     "Тусгай зөвшөөрөл"
@@ -51,7 +51,7 @@
                 }
             }
         },
-        "/api/v1/licences": {
+        "/v1/licences": {
             "get": {
                 "tags": [
                     "Тусгай зөвшөөрөл"
