@@ -17,7 +17,7 @@ class LicencesController extends Controller
 {
     /**
      * @OA\GET(
-     *     path="/api/v1/licences/{id}",
+     *     path="/v1/licences/{id}",
      *     tags={"Тусгай зөвшөөрөл"},
      *     summary="Тусгай зөвшөөрлийг буцаана",
      *     description="Тусгай зөвшөөрөл эзэмшигчийн мэдээллийг буцаана",
@@ -50,7 +50,7 @@ class LicencesController extends Controller
 
     /**
      * @OA\GET(
-     *     path="/api/v1/licences",
+     *     path="/v1/licences",
      *     tags={"Тусгай зөвшөөрөл"},
      *     summary="Тусгай зөвшөөрлийн жагсаалт",
      *     description="Тусгай зөвшөөрөл эзэмшигчийн мэдээллийг буцаана. Зөвшөөрөл авсан огноогоор шүүж болох ба хуудаслалттай. Нэг хуудаст 50 мэдээлэл ирнэ. from огноог дамжуулаагүй бол жилийн эхний өдрөөс хойшихыг буцаана.",
