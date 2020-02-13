@@ -49,7 +49,8 @@ class FetchLicences extends Command
         $data = json_decode(file_get_contents($url, false, stream_context_create($arrContextOptions)), true);
 
         if(!$data){
-            echo '\n error occured during fetch data';
+            echo '\n Error occurred during fetch data';
+            return;
         }
         echo '\n fetched '. count($data) . ' licences.';
         foreach ($data as $d){
